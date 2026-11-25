@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chavakali Restaurant | Ice Cream</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=DM+Sans:wght@400;500&display=swap">
+<style>
+:root{--bg:#fff0f5;--surface:#fff;--pink:#ec407a;--deep:#880e4f;--soft:#f8bbd0;--text:#4a1630;--on-pink:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2b0f1d;--surface:#3d1829;--pink:#f06292;--deep:#f8bbd0;--soft:#6a2a45;--text:#ffe4ee;--on-pink:#2b0f1d}}
+:root[data-theme="dark"]{--bg:#2b0f1d;--surface:#3d1829;--pink:#f06292;--deep:#f8bbd0;--soft:#6a2a45;--text:#ffe4ee;--on-pink:#2b0f1d}
+html{scroll-padding-top:70px;scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1.05rem/1.6 "DM Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Baloo 2",system-ui,sans-serif;line-height:1.05;margin:0;color:var(--deep)}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:2px solid var(--soft)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:10px;padding-bottom:10px;gap:10px}
+.logo{font:800 1.2rem "Baloo 2",sans-serif;color:var(--deep)}
+nav{display:flex;align-items:center;gap:14px}
+nav a{color:var(--text);text-decoration:none;font-weight:500}
+button{font:inherit;cursor:pointer}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+.btn{display:inline-block;background:var(--pink);color:var(--on-pink);padding:11px 24px;border-radius:999px;font-weight:500;text-decoration:none;border:0}
+.ghost{background:transparent;border:2px solid var(--pink);color:var(--pink);border-radius:999px;padding:6px 14px}
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center;padding:36px 0 40px}
+h1{font-size:clamp(2.6rem,8vw,5rem);font-weight:800}
+.hero p{max-width:36ch;margin:16px 0 24px}
+.cone{width:200px;height:300px;margin:0 auto;position:relative}
+.scoop{position:absolute;border-radius:50%;left:50%;transform:translateX(-50%)}
+.s1{width:150px;height:150px;background:var(--pink);top:10px}
+.s2{width:130px;height:130px;background:var(--soft);top:90px}
+.waffle{position:absolute;left:50%;transform:translateX(-50%);top:190px;border-left:62px solid transparent;border-right:62px solid transparent;border-top:110px solid #d9a066}
+.cherry{position:absolute;width:26px;height:26px;border-radius:50%;background:var(--deep);top:-6px;left:50%;transform:translateX(-50%)}
+.cone:hover .s1{animation:wob .6s}
+@keyframes wob{30%{transform:translateX(-50%) rotate(-6deg)}70%{transform:translateX(-50%) rotate(6deg)}}
+section{padding:40px 0}
+h2{font-size:clamp(1.8rem,5vw,2.6rem);margin-bottom:20px}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.tabs button{background:var(--surface);color:var(--text);border:2px solid var(--soft);border-radius:999px;padding:6px 16px}
+.tabs button[aria-pressed="true"]{background:var(--pink);color:var(--on-pink);border-color:var(--pink)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
+.card{background:var(--surface);border:2px solid var(--soft);border-radius:24px;padding:20px;display:flex;flex-direction:column;gap:6px}
+.card h3{font-size:1.35rem}.card p{margin:0;flex:1}
+.dot{width:34px;height:34px;border-radius:50%}
+.row{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
+.price{font-weight:500;color:var(--deep)}
+.qty{display:flex;align-items:center;gap:8px}
+.qty button{width:32px;height:32px;border-radius:50%;border:0;background:var(--pink);color:var(--on-pink);font-size:1.2rem;line-height:1}
+.review{font-style:italic}.review b{display:block;font-style:normal;margin-top:8px;color:var(--deep)}
+.band{background:var(--pink);color:var(--on-pink);border-radius:32px;padding:32px}
+.band h2{color:var(--on-pink)}
+form{display:grid;gap:10px;max-width:480px}
+input,textarea{font:inherit;padding:10px 14px;border-radius:14px;border:2px solid var(--soft);background:var(--surface);color:var(--text);width:100%}
+.band .btn{background:var(--surface);color:var(--deep)}
+#drawer{position:fixed;top:0;right:0;bottom:0;width:min(380px,100%);background:var(--surface);z-index:10;padding:calc(20px + env(safe-area-inset-top,0px)) 20px calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(105%);transition:transform .25s;display:flex;flex-direction:column;border-left:3px solid var(--pink)}
+#drawer.open{transform:none}
+#items{flex:1;overflow:auto;margin:12px 0}
+.line{display:flex;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid var(--soft)}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--deep);color:var(--bg);padding:10px 20px;border-radius:999px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:12}
+#toast.show{opacity:1}
+footer{text-align:center;padding:28px 0;font-size:.95rem}
+@media(max-width:700px){.hero{grid-template-columns:1fr;text-align:center}.hero p{margin-inline:auto}nav a.hide{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><div class="logo">Chavakali Restaurant</div>
+<nav><a class="hide" href="#menu">Menu</a><a class="hide" href="#reviews">Reviews</a><a class="hide" href="#visit">Visit</a>
+<button class="ghost" id="theme" aria-label="Switch light or dark mode">Mode</button>
+<button class="btn" id="open">Order (<span id="count">0</span>)</button></nav></div></header>
+
+<div class="wrap">
+<div class="hero">
+<div><h1>Cold, sweet, and pink.</h1>
+<p>Fresh ice cream scooped at Chavakali Restaurant. Pick your flavours and send your order in one tap.</p>
+<a class="btn" href="#menu">Order ice cream</a></div>
+<div class="cone" role="img" aria-label="Ice cream cone with two scoops and a cherry"><div class="waffle"></div><div class="scoop s2"></div><div class="scoop s1"><span class="cherry"></span></div></div>
+</div>
+
+<section id="menu"><h2>Our menu</h2>
+<div class="tabs" id="tabs"></div><div class="grid" id="list"></div></section>
+
+<section id="reviews"><h2>What customers say</h2>
+<div class="grid">
+<div class="card review">“The strawberry ice cream is the best in Chavakali.”<b>Amina</b></div>
+<div class="card review">“Creamy, cold, and the cones are crunchy. My kids love it.”<b>Peter</b></div>
+<div class="card review">“Quick service and a clean place to sit.”<b>Grace</b></div>
+</div></section>
+
+<section id="visit"><div class="band"><h2>Visit or message us</h2>
+<p>Chavakali Restaurant, Chavakali. Open every day, 9am to 8pm.</p>
+<form id="msg"><input id="n" placeholder="Your name" required aria-label="Your name"><textarea id="m" rows="3" placeholder="Your message" required aria-label="Your message"></textarea><button class="btn" type="submit">Send on WhatsApp</button></form>
+</div></section>
+<footer>© 2026 Chavakali Restaurant. All rights reserved.</footer>
+</div>
+
+<aside id="drawer" aria-label="Your order"><div class="row"><h2 style="margin:0">Your order</h2><button class="ghost" id="close">Close</button></div>
+<div id="items"></div><div class="row"><b>Total</b><b id="total">KSh 0</b></div>
+<input id="cn" placeholder="Your name" aria-label="Your name" style="margin-top:10px">
+<button class="btn" id="send" style="margin-top:10px">Send order on WhatsApp</button></aside>
+<div id="toast" role="status"></div>
+
+<script>
+var WHATSAPP="254700000000"; /* replace with the restaurant's WhatsApp number, digits only */
+var MENU=[
+{n:"Strawberry",c:"Scoops",p:80,d:"Creamy, with real strawberry.",k:"#f48fb1"},
+{n:"Vanilla",c:"Scoops",p:70,d:"The smooth classic.",k:"#fff3c4"},
+{n:"Chocolate",c:"Scoops",p:80,d:"Rich and deep.",k:"#8d5a44"},
+{n:"Mango",c:"Scoops",p:80,d:"Sweet and tropical.",k:"#ffd54f"},
+{n:"Cone Special",c:"Cones",p:150,d:"Two scoops in a crunchy cone.",k:"#d9a066"},
+{n:"Kids Cone",c:"Cones",p:100,d:"One scoop, kid size.",k:"#f8bbd0"},
+{n:"Pink Sundae",c:"Sundaes",p:250,d:"Three scoops, syrup, and a cherry.",k:"#ec407a"},
+{n:"Banana Split",c:"Sundaes",p:280,d:"Banana, scoops, and chocolate sauce.",k:"#ffe082"},
+{n:"Milkshake",c:"Drinks",p:200,d:"Thick and cold. Ask for your flavour.",k:"#f48fb1"},
+{n:"Soda",c:"Drinks",p:60,d:"Chilled soft drink.",k:"#ce93d8"}];
+var cart={},cat="All",$=function(i){return document.getElementById(i)};
+function money(x){return "KSh "+x.toLocaleString()}
+function toast(t){var e=$("toast");e.textContent=t;e.className="show";setTimeout(function(){e.className=""},1800)}
+function drawTabs(){var cs=["All"];MENU.forEach(function(m){if(cs.indexOf(m.c)<0)cs.push(m.c)});
+$("tabs").innerHTML=cs.map(function(c){return '<button aria-pressed="'+(c==cat)+'" data-c="'+c+'">'+c+'</button>'}).join("")}
+function drawList(){$("list").innerHTML=MENU.map(function(m,i){if(cat!="All"&&m.c!=cat)return "";
+var q=cart[i]||0;return '<div class="card"><span class="dot" style="background:'+m.k+'"></span><h3>'+m.n+'</h3><p>'+m.d+'</p><div class="row"><span class="price">'+money(m.p)+'</span><span class="qty"><button data-i="'+i+'" data-d="-1" aria-label="Remove one '+m.n+'">−</button><span>'+q+'</span><button data-i="'+i+'" data-d="1" aria-label="Add one '+m.n+'">+</button></span></div></div>'}).join("")}
+function change(i,d){cart[i]=Math.max(0,(cart[i]||0)+d);if(!cart[i])delete cart[i];update();if(d>0)toast(MENU[i].n+" added")}
+function update(){var n=0,t=0,h="";Object.keys(cart).forEach(function(i){var m=MENU[i],q=cart[i];n+=q;t+=q*m.p;
+h+='<div class="line"><span>'+q+' × '+m.n+'</span><span>'+money(q*m.p)+'</span></div>'});
+$("count").textContent=n;$("total").textContent=money(t);$("items").innerHTML=h||"<p>Your order is empty. Add something from the menu.</p>";drawList()}
+function wa(text){window.open("https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(text),"_blank","noopener")}
+$("tabs").onclick=function(e){if(e.target.dataset.c){cat=e.target.dataset.c;drawTabs();drawList()}};
+$("list").onclick=function(e){var b=e.target.closest("button[data-i]");if(b)change(+b.dataset.i,+b.dataset.d)};
+$("open").onclick=function(){$("drawer").classList.add("open")};
+$("close").onclick=function(){$("drawer").classList.remove("open")};
+$("send").onclick=function(){var ks=Object.keys(cart);if(!ks.length){toast("Add an item first");return}
+var t=0,l=ks.map(function(i){t+=cart[i]*MENU[i].p;return cart[i]+" x "+MENU[i].n}).join("\n");
+wa("Hello Chavakali Restaurant, I would like to order:\n"+l+"\nTotal: "+money(t)+"\nName: "+($("cn").value||"Not given"))};
+$("msg").onsubmit=function(e){e.preventDefault();wa("Hello, I am "+$("n").value+". "+$("m").value)};
+$("theme").onclick=function(){var r=document.documentElement,d=r.dataset.theme?r.dataset.theme=="dark":matchMedia("(prefers-color-scheme:dark)").matches;r.dataset.theme=d?"light":"dark"};
+drawTabs();update();
+</script>
+</body>
+</html>
